@@ -1,14 +1,17 @@
-# version: '3.8'
-# services:
-#   dev-db:
-#     image: 'postgres:13'
-#     ports:
-#       - 5434:5432
-#     environment:
-#       - POSTGRES_USER=root
-#       - POSTGRES_PASSWORD= 123
-#       - POSTGRES_DB=nest
-#     networks:
-#       nest-network:
-# networks:
-#   nest-network:
+version: '3.8'
+services:
+  dev-db:
+    image: 'mysql:8.0.31'
+    ports:
+      - "3307:3307"
+    expose:
+      - 3307
+    container_name: dev-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=nest
+      - MYSQL_TCP_PORT=3307
+    networks:
+      nest-network:
+networks:
+  nest-network:
